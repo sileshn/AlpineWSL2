@@ -12,6 +12,7 @@ Alpine on WSL2 (Windows 10 FCU or later) based on [wsldl](https://github.com/yuk
 ## Features and important information
 * Increase virtual disk size from the default 256GB
 * Create a new user and set the user as default
+* AlpineWSL2 is based on "edge". the current development tree of Alpine Linux. It is thus a rolling release.
 * AlpineWSL2 includes a wsl.conf file which only has section headers. Users can use this to configure the distro to their liking. You can read more about wsl.conf and its configuration settings [here](https://docs.microsoft.com/en-us/windows/wsl/wsl-config).
 
 ## Requirements
