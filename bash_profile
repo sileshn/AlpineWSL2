@@ -124,6 +124,8 @@ select yn in "Yes" "No"; do
                     username=""
                 else
                     adduser -G wheel "$username"
+                    echo "$username ALL=(ALL) ALL" > /etc/sudoers.d/wheel
+					chmod 0440 /etc/sudoers.d/wheel
                     sed -i "/\[user\]/a default = $username" /etc/wsl.conf >/dev/null
                     echo "@echo off" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
                     echo "wsl.exe --terminate $WSL_DISTRO_NAME" | sudo tee -a ~/shutdown.cmd >/dev/null 2>&1
