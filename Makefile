@@ -46,7 +46,7 @@ rootfs: base.tar
 
 base.tar:
 	@echo -e '\e[1;31mExporting base.tar using docker...\e[m'
-	docker run --net=host --name alpinewsl alpine:edge /bin/sh -c "echo 'https://dl-cdn.alpinelinux.org/alpine/edge/testing' | tee -a /etc/apk/repositories > /dev/null; apk update; apk add --upgrade apk-tools; apk upgrade --available; apk add alpine-sdk bash bc e2fsprogs-extra figlet gnupg lolcat m4 nano ncurses neofetch openrc openssh sudo wget"
+	docker run --net=host --name alpinewsl alpine:edge /bin/sh -c "echo 'https://dl-cdn.alpinelinux.org/alpine/edge/testing' | tee -a /etc/apk/repositories > /dev/null; apk update; apk add --upgrade apk-tools; apk upgrade --available; apk add alpine-sdk bash bc e2fsprogs-extra figlet gnupg lolcat m4 nano ncurses neofetch openrc openssh sudo wget; sudo sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd"
 	docker export --output=base.tar alpinewsl
 	docker rm -f alpinewsl
 

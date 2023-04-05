@@ -123,7 +123,7 @@ select yn in "Yes" "No"; do
                     echo -en "\033[1A\033[1A\033[2K"
                     username=""
                 else
-                    adduser -G wheel "$username"
+                    adduser -G wheel -s /bin/bash "$username"
                     echo "$username ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 					chmod 0440 /etc/sudoers.d/wheel
                     sed -i "/\[user\]/a default = $username" /etc/wsl.conf >/dev/null
